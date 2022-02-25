@@ -9,7 +9,7 @@ module.exports = defineConfig({
     // disableHostCheck: true,
     proxy: {
       "/api": {
-        target: "http://v.juhe.cn/",
+        target: "http://api.tianapi.com",
         changeOrigin: true,
         ws: true,
         secure: false,

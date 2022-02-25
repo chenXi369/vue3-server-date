@@ -1,4 +1,4 @@
-const JUHE_APPKEY = ""
+const JUHE_APPKEY = "e148c985f48c2a08c862e03523434a42"
 
 export {
   JUHE_APPKEY

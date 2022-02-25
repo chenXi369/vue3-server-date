@@ -3,8 +3,8 @@ import { axiosPost } from "@/libs/http"
 function getDayData(data) {
   return new Promise((resolve, reject) => {
     axiosPost({
-      url: '/api/calender/day',
-      data: { data },
+      url: '/api/lunar/index',
+      data: { 'date': data },
       success(data) {
         resolve(data)
       },
