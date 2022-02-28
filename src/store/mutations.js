@@ -82,5 +82,9 @@ export default {
 
   setField(state, field) {
     state.field = field
+  },
+
+  setFieldVal(state, field) {
+    state.fieldVal = `${field}Data`
   }
 }

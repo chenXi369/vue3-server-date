@@ -6,5 +6,6 @@ export default {
   dayData: {},
   monthData: [],
   yearData: [],
-  field: 'day'
+  field: 'day',
+  fieldVal: 'dayData'
 }
