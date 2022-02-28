@@ -11,7 +11,13 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed, watch } from 'vue'
+
+import { useStore } from 'vuex'
+
+import { formatUserDate, getNowDate } from '@/libs/utils'
+
+import getData from '@/api'
 
 export default {
   name: 'SearchInput',
@@ -20,12 +26,28 @@ export default {
     maxlength: Number
   },
 
-  setup() {
-    const inputValue = ref('')
+  setup(props) {
+    const inputValue = ref(''),
+          store = useStore(),
+          state = store.state
 
     const searchData = (e) => {
+      inputValue.value = e.target.value
 
+      const field = computed(() => state.field).value
+
+      if(inputValue.value.length === props.maxlength) {
+        getData(store, field, formatUserDate(inputValue.value))
+      } else if(inputValue.value.length === 0) {  
+        getData(store, field, getNowDate(field))
+      }
     }
+
+    watch(() => {
+      return state.field
+    }, () => {
+      inputValue.value = ''
+    })
 
     return {
       inputValue,

@@ -6,10 +6,10 @@ module.exports = defineConfig({
   transpileDependencies: true,
   devServer: {
     port: port,
-    // disableHostCheck: true,
+    allowedHosts: "all",
     proxy: {
       "/api": {
-        target: "http://api.tianapi.com",
+        target: "http://v.juhe.cn",
         changeOrigin: true,
         ws: true,
         secure: false,

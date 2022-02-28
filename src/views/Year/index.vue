@@ -1,19 +1,47 @@
 <template>
   <div class="container">
-    Year page
+    <error-tip />
+    <div v-if="!errorCode">
+      <card-list :data="yearData" />
+    </div>
   </div>
 </template>
 
 <script>
 import getData from '@/api'
-import { onMounted } from 'vue'
+import { onMounted, computed, watch } from 'vue'
+
+import { useStore } from 'vuex'
+
+import { getNowDate } from '@/libs/utils'
+
+import CardList from '@/components/YearPage/List'
+import ErrorTip from '@/components/ErrorTip'
 
 export default {
   name: 'YearPage',
+  components: {
+    ErrorTip,
+    CardList
+  },
   setup() {
+    const store = useStore(),
+          state = store.state
+
     onMounted(() => {
-      getData('year', '2019')
+      getData(store, 'year', getNowDate('year'))
     })
+
+    watch(() => {
+      return state.yearData
+    }, () => {
+      store.commit('setErrorCode', 0)
+    })
+
+    return {
+      errorCode: computed(() => state.errorCode),
+      yearData: computed(() => state.yearData)
+    }
   }
 }
 </script>

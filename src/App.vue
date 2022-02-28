@@ -4,7 +4,11 @@
     :placeholder="placeholder"
     :maxlength="maxlength"
   />
-  <router-view />
+  <router-view v-slot="{ Component }">
+    <keep-alive>
+      <component :is="Component" />
+    </keep-alive>
+  </router-view>
   <tabbar />
 </template>
 
@@ -39,6 +43,8 @@ export default {
       store.commit('setHeaderTitle', value)
       store.commit('setPlaceholder', value)
       store.commit('setMaxLength', value)
+      store.commit('setField', value)
+      store.commit('setErrorCode', 0)
     })
     
     return computed(() => state).value

@@ -3,7 +3,7 @@ import { axiosPost } from "@/libs/http"
 function getDayData(data) {
   return new Promise((resolve, reject) => {
     axiosPost({
-      url: '/api/lunar/index',
+      url: '/api/calendar/day',
       data: { 'date': data },
       success(data) {
         resolve(data)
@@ -18,7 +18,7 @@ function getDayData(data) {
 function getMonthData(month) {
   return new Promise((resolve, reject) => {
     axiosPost({
-      url: '/api/calender/month',
+      url: '/api/calendar/month',
       data: { 
         'year-month': month
       },
@@ -35,7 +35,7 @@ function getMonthData(month) {
 function getYearData(year) {
   return new Promise((resolve, reject) => {
     axiosPost({
-      url: '/api/calender/year',
+      url: '/api/calendar/year',
       data: { year },
       success(data) {
         resolve(data)

@@ -44,17 +44,43 @@ export default {
 
     switch (routerName) {
       case 'Day':
-        state.placeholder = `格式: ${year}${month}${day}`
+        state.placeholder = `格式: ${year}${month}${day} (${year}年${month}月${day}日)`
         break;
       case 'Month':
-        state.placeholder = `格式: ${year}${month}`
+        state.placeholder = `格式: ${year}${month} (${year}年${month}月)`
         break;
       case 'Year':
-        state.placeholder = `格式: ${year}`
+        state.placeholder = `格式: ${year} (${year}年)`
         break;
       default:
         state.placeholder = `格式: ${year}${month}${day}`
         break;
     }
+  },
+
+  setErrorCode(state, errorCode) {
+    state.errorCode = errorCode
+  },
+
+  setData(state, payload) {
+    const { field, data } = payload
+
+    switch (field) {
+      case 'day':
+        state.dayData = data
+        break;
+      case 'month':
+        state.monthData = data
+        break;
+      case 'year':
+        state.yearData = data
+        break;
+      default:
+        break;
+    }
+  },
+
+  setField(state, field) {
+    state.field = field
   }
 }
