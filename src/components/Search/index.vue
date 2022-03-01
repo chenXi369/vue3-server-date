@@ -1,6 +1,6 @@
 <template>
   <div class="search-wrap">
-    <input
+    <input 
       type="text"
       :placeholder="placeholder"
       :maxlength="maxlength"
@@ -11,13 +11,14 @@
 </template>
 
 <script>
-import { ref, computed, watch } from 'vue'
 
-import { useStore } from 'vuex'
+import { ref, computed, watch } from 'vue';
 
-import { formatUserDate, getNowDate } from '@/libs/utils'
+import { useStore } from 'vuex';
 
-import getData from '@/api'
+import { formatUserDate, getNowDate } from '@/libs/utils';
+
+import getDataVal from '@/api';
 
 export default {
   name: 'SearchInput',
@@ -25,8 +26,7 @@ export default {
     placeholder: String,
     maxlength: Number
   },
-
-  setup(props) {
+  setup (props) {
     const inputValue = ref(''),
           store = useStore(),
           state = store.state
@@ -36,10 +36,11 @@ export default {
 
       const field = computed(() => state.field).value
 
-      if(inputValue.value.length === props.maxlength) {
-        getData(store, field, formatUserDate(inputValue.value))
-      } else if(inputValue.value.length === 0) {  
-        getData(store, field, getNowDate(field))
+      if (inputValue.value.length === props.maxlength) {
+        console.log(formatUserDate(inputValue.value))
+        getDataVal(store, field, formatUserDate(inputValue.value))
+      } else if (inputValue.value.length === 0) {
+        getDataVal(store, field, getNowDate(field))
       }
     }
 
@@ -47,7 +48,7 @@ export default {
       return state.field
     }, () => {
       inputValue.value = ''
-    })
+    });
 
     return {
       inputValue,
@@ -58,7 +59,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .search-wrap {
+.search-wrap {
     position: fixed;
     top: .44rem;
     left: 0;

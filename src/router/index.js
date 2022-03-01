@@ -4,17 +4,17 @@ import DayPage from '@/views/Day/index'
 const routes = [
   {
     path: '/',
-    name: 'Day',
+    name: 'day',
     component: DayPage
   },
   {
     path: '/month',
-    name: 'Month',
+    name: 'month',
     component: () => import('../views/Month/index.vue')
   },
   {
     path: '/year',
-    name: 'Year',
+    name: 'year',
     component: () => import('../views/Year/index.vue')
   }
 ]

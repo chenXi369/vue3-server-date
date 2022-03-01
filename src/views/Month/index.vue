@@ -18,7 +18,7 @@ import { getNowDate } from '@/libs/utils'
 import CardList from '@/components/MonthPage/List'
 import ErrorTip from '@/components/ErrorTip'
 
-import mixin from '@/mixins/errorMixin'
+// import mixin from '@/mixins/errorMixin'
 
 export default {
   name: 'MonthPage',
@@ -31,7 +31,7 @@ export default {
     const store = useStore(),
           state = store.state
 
-    mixin(state.field)
+    // mixin()
 
     onMounted(() => {
       getData(store, 'month', getNowDate('month'))

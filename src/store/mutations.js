@@ -1,13 +1,13 @@
 export default {
   setHeaderTitle(state, routerName) {
     switch (routerName) {
-      case 'Day':
+      case 'day':
         state.headerTitle = '当天信息'
         break;
-      case 'Month':
+      case 'month':
         state.headerTitle = '近期假期'
         break;
-      case 'Year':
+      case 'year':
         state.headerTitle = '当年假期'
         break;
       default:
@@ -18,13 +18,13 @@ export default {
 
   setMaxLength(state, routerName) {
     switch (routerName) {
-      case 'Day':
+      case 'day':
         state.maxlength = 8
         break;
-      case 'Month':
+      case 'month':
         state.maxlength = 6
         break;
-      case 'Year':
+      case 'year':
         state.maxlength = 4
         break;
       default:
@@ -43,13 +43,13 @@ export default {
     day = day < 10 ? '0' + day : day
 
     switch (routerName) {
-      case 'Day':
+      case 'day':
         state.placeholder = `格式: ${year}${month}${day} (${year}年${month}月${day}日)`
         break;
-      case 'Month':
+      case 'month':
         state.placeholder = `格式: ${year}${month} (${year}年${month}月)`
         break;
-      case 'Year':
+      case 'year':
         state.placeholder = `格式: ${year} (${year}年)`
         break;
       default:
@@ -82,9 +82,5 @@ export default {
 
   setField(state, field) {
     state.field = field
-  },
-
-  setFieldVal(state, field) {
-    state.fieldVal = `${field}Data`
   }
 }
