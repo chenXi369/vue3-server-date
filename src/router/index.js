@@ -1,21 +1,42 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import DayPage from '@/views/Day/index'
 
 const routes = [
   {
     path: '/',
-    name: 'day',
-    component: DayPage
+    name: 'Dashboard',
+    component: () => import('../views/Dashboard/index.vue')
   },
   {
-    path: '/month',
-    name: 'month',
-    component: () => import('../views/Month/index.vue')
+    path: '/headline',
+    name: 'Headline',
+    component: () => import('../views/Headline/index.vue')
   },
   {
-    path: '/year',
-    name: 'year',
-    component: () => import('../views/Year/index.vue')
+    path: '/oilPrice',
+    name: 'OilPrice',
+    component: () => import('../views/OilPrice/index.vue')
+  },
+  {
+    path: '/holiday',
+    name: 'Holiday',
+    component: () => import('../views/Holiday/index.vue'),
+    children: [
+      {
+        path: 'day',
+        name: 'Day',
+        component: () => import('../views/Holiday/Day/index.vue')
+      },
+      {
+        path: 'month',
+        name: 'Month',
+        component: () => import('../views/Holiday/Month/index.vue')
+      },
+      {
+        path: 'year',
+        name: 'Year',
+        component: () => import('../views/Holiday/Year/index.vue')
+      }
+    ]
   }
 ]
 

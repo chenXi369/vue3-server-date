@@ -2,18 +2,18 @@ import { getIconDate } from '@/libs/utils'
 
 export default [
   {
-    iconText: getIconDate('day'),
+    iconText: getIconDate('Day'),
     tabText: '当天',
-    path: '/'
+    path: '/holiday/day'
   },
   {
-    iconText: getIconDate('month'),
+    iconText: getIconDate('Month'),
     tabText: '近期',
-    path: '/month'
+    path: '/holiday/month'
   },
   {
-    iconText: getIconDate('year'),
+    iconText: getIconDate('Year'),
     tabText: '当年',
-    path: '/year'
+    path: '/holiday/year'
   }
 ]

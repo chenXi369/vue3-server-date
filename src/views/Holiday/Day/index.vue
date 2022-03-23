@@ -2,7 +2,8 @@
   <div class="container">
     <error-tip />
     <div v-if="!errorCode">
-      <card-list :data="monthData" />
+      <day-card :data="dayData"></day-card>
+      <day-list :data="dayData"></day-list>
     </div>
   </div>
 </template>
@@ -10,41 +11,38 @@
 <script>
 import getData from '@/api'
 import { onMounted, computed, watch } from 'vue'
-
 import { useStore } from 'vuex'
+
+import DayCard from '../Day/components/Card.vue'
+import DayList from './components/list'
+import ErrorTip from '@/components/ErrorTip'
 
 import { getNowDate } from '@/libs/utils'
 
-import CardList from '@/components/MonthPage/List'
-import ErrorTip from '@/components/ErrorTip'
-
-// import mixin from '@/mixins/errorMixin'
-
 export default {
-  name: 'MonthPage',
+  name: 'DayPage',
   components: {
-    ErrorTip,
-    CardList
+    DayCard,
+    DayList,
+    ErrorTip
   },
-
+  
   setup() {
     const store = useStore(),
           state = store.state
 
-    // mixin()
-
     onMounted(() => {
-      getData(store, 'month', getNowDate('month'))
+      getData(store, 'Day', getNowDate('Day'))
     })
 
     watch(() => {
-      return state.monthData
+      return state.dayData
     }, () => {
       store.commit('setErrorCode', 0)
     })
 
     return {
-      monthData: computed(() => state.monthData),
+      dayData: computed(() => state.dayData),
       errorCode: computed(() => state.errorCode)
     }
   }

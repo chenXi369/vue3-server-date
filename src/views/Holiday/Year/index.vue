@@ -29,7 +29,7 @@ export default {
           state = store.state
 
     onMounted(() => {
-      getData(store, 'year', getNowDate('year'))
+      getData(store, 'Year', getNowDate('Year'))
     })
 
     watch(() => {

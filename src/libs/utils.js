@@ -6,11 +6,11 @@ function getIconDate(type) {
   const date = new Date()
 
   switch (type) {
-    case 'day':
+    case 'Day':
       return _addZero(date.getDate().toString())
-    case 'month':
+    case 'Month':
       return _addZero((date.getMonth() + 1).toString())
-    case 'year':
+    case 'Year':
       return date.getFullYear().toString().substr(2)
     default:
       break;
@@ -21,11 +21,11 @@ function formatChsDate(date, type) {
   const _arr = date.split('-')
 
   switch (type) {
-    case 'day':
+    case 'Day':
       return `${_arr[0]}年${_arr[1]}月${_arr[2]}日`
-    case 'month':
+    case 'Month':
       return `${_arr[0]}年${_arr[1]}月`
-    case 'year':
+    case 'Year':
       return `${_arr[0]}年`
     default:
       return `${_arr[0]}年${_arr[1]}月${_arr[2]}日`
@@ -47,11 +47,11 @@ function getNowDate (field) {
       day = date.getDate()
 
   switch(field) {
-    case 'day': 
+    case 'Day': 
       return `${year}-${month}-${day}`
-    case 'month': 
+    case 'Month': 
       return `${year}-${month}`
-    case 'year': 
+    case 'Year': 
       return `${year}`
     default: 
       return `${year}-${month}-${day}`

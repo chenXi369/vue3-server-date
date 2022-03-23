@@ -13,13 +13,13 @@ export default async (store, field, date) => {
   let data = null
 
   switch (field) {
-    case 'day': 
+    case 'Day': 
       data = await getDayData(date)
     break;
-    case 'month': 
+    case 'Month': 
       data = await getMonthData(date)
     break;
-    case 'year': 
+    case 'Year': 
       data = await getYearData(date)
     break;
     default: 
@@ -34,16 +34,16 @@ export default async (store, field, date) => {
   let res = null
 
   switch (field) {
-    case 'day':
+    case 'Day':
       res = data.result.data
       res.date = formatChsDate(res.date, 'day')
       res['year-month'] = formatChsDate(res['year-month'], 'month')
       break;
-    case 'month':
+    case 'Month':
       res = data.result.data.holiday_array
       res = mapForChsDate(res, 'festival')
       break;
-    case 'year':
+    case 'Year':
       res = data.result.data.holiday_list
       res = mapForChsDate(res, 'startday')
       break;

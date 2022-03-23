@@ -30,6 +30,7 @@ export default {
 
       &.title {
         width: 1rem;
+        min-width: 1rem;
         font-size: .18rem;
         margin-right: .15rem;
         color: #ed4040;
@@ -38,9 +39,14 @@ export default {
       }
 
       &.content {
-        display: flex;
-        align-items: center;
         font-size: .14rem;
+        // display: flex;
+        // align-items: center;
+        line-height: .44rem;
+        overflow: hidden; /*文本超出隐藏*/
+        display:-webkit-box; /*盒子模型微弹性伸缩模型*/
+        -webkit-box-orient: vertical; /*伸缩盒子的子元素垂直排列*/
+        -webkit-line-clamp: 3; /*文本显示3行*/
       }
     }
   }
