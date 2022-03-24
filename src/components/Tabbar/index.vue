@@ -19,7 +19,6 @@ import TabIcon from './TabIcon.vue'
 import tabData from '@/data/tab'
 
 import { reactive } from 'vue'
-// import { Router } from ''
 
 export default {
   name: 'Tabbar',

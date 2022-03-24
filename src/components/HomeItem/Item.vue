@@ -1,8 +1,8 @@
 <template>
   <li class="home-item">
     <div class="item-card">
-      <router-link :to="item.path">      
-        <!-- <img :src="require(`../../assets/home/${item.name}`)" :alt="item.name" /> -->
+      <router-link class="item-link" :to="item.path">      
+        <img :src="require(`../../assets/img/${item.name}.png`)" :alt="item.name" />
         <div class="title">
           <h2>{{item.name}}</h2>
         </div>
@@ -30,14 +30,26 @@ export default {
       width: 1.5rem;
       height: 1.5rem;
       border-radius: 5px;
-      border: 1px solid #eaeaea;
       display: flex;
       justify-content: center;
       align-items: center;
+      background-color: #c2f1f3;
 
-      .title {
-        text-align: center;
+      .item-link {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+          width: .8rem;
+          height: .8rem;
+          margin-bottom: 10px;
+        }
+        .title {
+          text-align: center;
+        }
       }
+      
     }
   }
 </style>
