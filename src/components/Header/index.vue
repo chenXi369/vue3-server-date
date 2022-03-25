@@ -16,7 +16,7 @@ export default {
   setup() {
     const router = useRouter()
     const handleBack = () => {
-      router.go(-1)
+      router.push('/')
     }
 
     return {
